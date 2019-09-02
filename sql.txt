@@ -12,20 +12,43 @@ UserImg nvarchar(250)
 ) ;
 CREATE TABLE Acitvity
 (
-ActivityID int Primary key auto_increment,
+ActivityID int(4) Primary key auto_increment,
+ActivityName nvarchar(125) not null,
+EndTime datetime(8) not null,
+ActivityPicture nvarchar(250) not null,
+ActiveityIntroduction nvarchar(8000) null,
+Summary nvarchar(250) null,
 ActivityVerify nchar(10) not null DEFAULT '´ýÉóºË',
-ActivityName nvarchar(125) not NULL,
-EndTime datetime(8) not NULL,
-ActivityPicture nvarchar(250) not NULL,
-ActivityIntroduction nvarchar(8000),
-Summary nvarchar(250),
-ActivityStatus nchar(10),
-UserName nvarchar(50) not NULL
+ActivityStatus nachar(10) null,
+UserName nvarchar(50) not null
 );
 CREATE TABLE WorkInfo
 (
-WorkID int Primary key auto_increment,
-WorkVerify nchar(10) not null DEFAULT'´ýÉóºË',
+WorkID int(4) Primary key auto_increment,
 WorkName nvarchar(50) not null,
-
-)
+WorkPicture nvarchar(250) not null,
+UploadTime datetime(8) not null,
+WorkIntroduction nvarchar(8000) null,
+WorkVerify nchar(10) not null DEFAULT '´ýÉóºË',
+UserName nvarchar(50) not null,
+ActivityName nvarchar(125) null,
+Recommend nchar(2) not null,
+RecommendTime datetime(8) null,
+);
+CREATE TABLE Comment
+(
+CommentID int(4) Primary key auto_increment,
+WorkID int(4) not null,
+WorkName nvarchar(50) not null,
+UserName nvarchar(50) not null,
+CommentContent nvarchar(8000) not null,
+CommentTime datetime(8) null,
+);
+CREATE TABLE Image
+(
+ImgD int(4) Primary key auto_increment,
+ImgUrl nvnarchar(50) not null,
+ImgText nvnarchar(50) not null,
+ImgLink nvnarchar(100) not null,
+ImgAlt nvnarchar(50) not null,
+);
